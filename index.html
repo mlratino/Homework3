@@ -1,0 +1,85 @@
+<!DOCTYPE htm>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hangman Game</title>
+	
+    <!-- <link href="style.css" rel="stylesheet" type="text/css">  -->
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   </head>
+   
+  <header>
+                    <h1>Hangman Game</h1>
+                    <h2>Guess The Flower</h2>
+   </header>
+   
+   <body>
+       
+    <body onload = "startUp"()>   
+      <h3> Choose a letter!</h3>       
+      <input id = "letter" type = "text">
+      <input type = "button" value = "letter" onclick = "Letter()"/>
+                  <p  id= "answer"></p>
+                  <p  id= "counter"></p>     
+                  <p  id= "stat"></p> 
+
+      </body>
+
+
+<script>
+var randomWordArray= ["dahlia","daisy","rhodendendron","astilbe","hydrandrea","mums"];
+var randomWord = randomWordArray[Math.floor(Math.random() * randomWordArray.length)];
+
+var x;
+var counter= 0;
+var answerArray = [];
+
+function startUp()
+{
+ 
+for (var i=0; i < randomWord.length; i++)
+    {
+        answerArray(i) =  "_";
+    }
+
+        x = answerArray.join("");
+        document.getElementById("answer").innerHTML = x;
+
+}
+
+function Letter()
+{
+var letter = document.getElementById("letter").value;
+
+    if(letter.length > 0)
+{
+    for (var i = 0; i < randomWord.length; i++)
+        {
+            if (randomWord[i] === letter)
+            {
+                answerArray [i] = letter;
+            
+            }
+
+        }
+        count++;
+        document.getElementById("counter") . innerHTML = "No of clicks:" + count;
+        document.getElementById("answer") . innerHTML = answerArray.join("");
+    }
+    if (count > 10)
+{
+
+    document.getElementById("stat") . innerHTML = "Really?";
+
+}
+
+</script>
+
+</html>
